@@ -1,0 +1,8 @@
+@media only screen and (max-width: 992px){
+  .eleven.wide.column.feed-col{
+	width: 100% !important;
+  }
+  .one.wide.colum.blank-col, .four.wide.column.extra-col{
+	display: none;
+  }
+}

@@ -1,0 +1,12 @@
+.post-date{
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
+}
+.follow-btn{
+  margin-top: 0.5em;
+}
+.post-author-meta{
+  padding-left: .75rem;
+  vertical-align: middle;
+  display: inline-block;
+}

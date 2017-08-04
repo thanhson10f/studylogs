@@ -1,0 +1,15 @@
+.post-meta{
+  white-space: nowrap;
+  font-size: 85%;
+  color: rgba(0,0,0,0.3);
+  margin: 0 0 0 .5em;
+}
+.ui.items>.item>.content>.description{
+  color: rgba(0,0,0,0.6) !important;
+}
+@media only screen and (max-width: 767px){
+  .post-meta{
+	margin-top: 0.5em;
+	text-align: right;
+  }
+}

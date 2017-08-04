@@ -8,7 +8,7 @@ import { Post } from '../shared/post.model';
 })
 export class PostItemComponent implements OnInit {
 
-  @HostBinding('attr.class') cssClass='item';
+  @HostBinding('attr.class') cssClass='event item';
   @Input() post: Post;
   constructor() { }
 
