@@ -42,8 +42,8 @@ testem.log
 Thumbs.db
 
 # Semantic-ui
-semantic/dist/components
-semantic/dist/themes/*
-!semantic/dist/*.js
-!semantic/dist/*.css
-!semantic/dist/themes/default/
+/semantic/dist/components
+/semantic/dist/themes/*
+!/semantic/dist/*.js
+!/semantic/dist/*.css
+!/semantic/dist/themes/default/
