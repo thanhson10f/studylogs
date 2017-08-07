@@ -9,10 +9,10 @@
 	<div class="ui items">
 	  <div class="ui item">
 		<div class="ui image">
-		  <a><img class="image small ui" src="https://semantic-ui.com/images/wireframe/image.png"></a>
+		  <a routerLink="/posts/{{ post.id }}"><img class="image small ui" src="https://semantic-ui.com/images/wireframe/image.png"></a>
 		</div>
 		<div class="content">
-		  <div class="header"><a href="#">{{ post.title }}</a></div>
+		  <div class="header"><a [routerLink]="['/posts/', post.id]">{{ post.title }}</a></div>
 		  <div class="description">
 			{{ post.description }}
 		  </div>

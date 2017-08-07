@@ -6,7 +6,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @HostBinding('attr.class') cssClass = "ui page grid";
+  @HostBinding('attr.class') cssClass = "ui grid";
 
   constructor() { }
 

@@ -22,6 +22,7 @@ export class PostDetailsComponent implements OnInit {
 	  return this.postService.get_post_by_id(+id);
 	}).subscribe(res => {
 	  this.post = res as Post;
+	  //console.log(this.post);
 	}, err => {
 	  console.log(err);
 	});
