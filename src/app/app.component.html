@@ -5,7 +5,8 @@
 		<img class="logo" src="https://semantic-ui.com/examples/assets/images/logo.png">
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Study Logs
 	  </a>
-	  <a routerLink="/" routerLinkActive="active" class="item">Home</a>
+	  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="item">Home</a>
+	  <a routerLink="/new-post" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="item floated right">Write a post</a>
 	</div>
   </div>
 </header>

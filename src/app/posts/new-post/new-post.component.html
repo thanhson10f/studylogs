@@ -1,14 +1,18 @@
-<form [formGroup]="postForm" novalidate>
-  <label for="post-title">
-	Title:
-	<input id="post-title" formControlName = "title"/>
-  </label>
-  <label for="post-tag">
-	Tag:
-	<input id="post-tag" formControlName = "tag"/>
-  </label>
-  <textarea formControlName="body" rows="8" cols="40"></textarea>
-  <button type="submit">Post</button>
+<form [formGroup]="postForm" novalidate class="ui form">
+  <div class="field">
+	<div class="ui fluid huge icon input">
+  <input id="post-title" formControlName = "title" placeholder="Title"/>
+	</div>
+  </div>
+  <div class="field">
+	<div class="ui fluid icon input">
+  <input id="post-tag" formControlName = "tag" placeholder="Write tags separated by comma"/>
+	</div>
+  </div>
+  <div class="field">
+  <textarea formControlName="body" rows="48" cols="40" placeholder="Write something..."></textarea>
+  </div>
+  <button type="submit" class="ui button primary right floated">Post it</button>
 </form>
 
 <p>Form Value: {{ postForm.value | json }}</p>
