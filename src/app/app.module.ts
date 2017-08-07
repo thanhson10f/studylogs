@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -9,10 +10,12 @@ import { PostItemComponent } from './posts/post-item/post-item.component';
 import { HttpModule } from '@angular/http';
 import { PostDetailsComponent } from './posts/post-details/post-details.component';
 import { PostDetailsContentComponent } from './posts/post-details-content/post-details-content.component';
+import { NewPostComponent } from './posts/new-post/new-post.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'posts/:id', component: PostDetailsComponent}
+  { path: 'posts/:id', component: PostDetailsComponent},
+  { path: 'new-post', component: NewPostComponent}
 ]
 
 @NgModule({
@@ -24,6 +27,7 @@ const appRoutes: Routes = [
     PostItemComponent,
     PostDetailsComponent,
     PostDetailsContentComponent,
+    NewPostComponent,
   ],
   imports: [
 	RouterModule.forRoot(
@@ -31,7 +35,8 @@ const appRoutes: Routes = [
 	  { enableTracing: true } //debugging purpose only
 	),
     BrowserModule,
-	HttpModule
+	HttpModule,
+	ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

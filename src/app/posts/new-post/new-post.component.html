@@ -1,0 +1,15 @@
+<form [formGroup]="postForm" novalidate>
+  <label for="post-title">
+	Title:
+	<input id="post-title" formControlName = "title"/>
+  </label>
+  <label for="post-tag">
+	Tag:
+	<input id="post-tag" formControlName = "tag"/>
+  </label>
+  <textarea formControlName="body" rows="8" cols="40"></textarea>
+  <button type="submit">Post</button>
+</form>
+
+<p>Form Value: {{ postForm.value | json }}</p>
+<p>Form status: {{ postForm.status | json }}</p>
