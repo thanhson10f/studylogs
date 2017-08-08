@@ -1,4 +1,4 @@
-<form [formGroup]="postForm" novalidate class="ui form">
+<form [formGroup]="postForm" novalidate class="ui form" (ngSubmit)="onSubmit()">
   <div class="field">
 	<div class="ui fluid huge icon input">
   <input id="post-title" formControlName = "title" placeholder="Title"/>
@@ -10,7 +10,7 @@
 	</div>
   </div>
   <div class="field">
-  <textarea formControlName="body" rows="48" cols="40" placeholder="Write something..."></textarea>
+	<textarea id="simplemde" formControlName="body" rows="48" cols="40" placeholder="Write something..."></textarea>
   </div>
   <button type="submit" class="ui button primary right floated">Post it</button>
 </form>

@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { PostDetailsComponent } from './posts/post-details/post-details.component';
 import { PostDetailsContentComponent } from './posts/post-details-content/post-details-content.component';
 import { NewPostComponent } from './posts/new-post/new-post.component';
+import { MdeditorComponent } from './mdeditor/mdeditor.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     PostDetailsComponent,
     PostDetailsContentComponent,
     NewPostComponent,
+    MdeditorComponent,
   ],
   imports: [
 	RouterModule.forRoot(
