@@ -1,8 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, HostBinding} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-
-declare let require: any;
-var SimpleMDE = require('simplemde/dist/simplemde.min.js');
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'new-post',
@@ -10,30 +8,18 @@ var SimpleMDE = require('simplemde/dist/simplemde.min.js');
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-
-  @ViewChild('simplemde') textarea : ElementRef;
+  @HostBinding('attr.class') cssClass = "ui page grid";
   postForm: FormGroup;
-  mde: any;
-  constructor(private formBuilder: FormBuilder) { }
+  post_id: string;
+  constructor(private formBuilder: FormBuilder, private location: Location) {
+  }
 
   ngOnInit() {
 	this.createForm();
+	this.markdown_process();
+	this.post_id = this.generate_unique_id();
   }
 
-  ngAfterViewInit() {
-	this.mde = new SimpleMDE({
-	  element: this.textarea.nativeElement,
-	  showIcons: ["code", "table"],
-	  forceSync: true,
-	  autosave: {
-		enabled: true,
-		delay: 10000,
-		uniqueId: 'abcvasd'
-	  }
-	});
-
-	this.mde.value("Demo");
-  }
   createForm(){
 	this.postForm = this.formBuilder.group({
 	  title: ['', Validators.required],
@@ -42,9 +28,36 @@ export class NewPostComponent implements OnInit {
 	});
   }
 
+  markdown_data: string;
+  markdown_process(){
+	const bodyControl = this.postForm.get('body');
+
+	let bc = bodyControl.valueChanges.share();
+	bc.subscribe(val => this.markdown_data =  this.md_text(val));
+
+	// auto save every 20 characters
+	bc.filter(val => val.length % 20 ==0 ).subscribe(val => {
+	  console.log("save id: " + this.post_id +"---" + val);
+	});
+  }
+
+  md_text(text): string{
+	return text.replace(/^( *(\d+\. {1,4}|[\w\<\'\">\-*+])[^\n]*)\n{1}(?!\n| *\d+\. {1,4}| *[-*+] +|$)/gm, function(text) {
+	  return text.trim() + "  \n";
+	})
+  }
+
   onSubmit(){
 	console.log(this.postForm.value);
-	console.log(this.mde.value());
+  }
+
+  change_url(){
+	//this.location.go('new-post/12345'); // press back button will take you back
+	this.location.replaceState("/new-post/"+this.post_id); // press back button won't take you back
+  }
+
+  generate_unique_id(){
+	return 'pid-' + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substr(2, 9);
   }
 
 }

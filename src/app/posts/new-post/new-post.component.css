@@ -1,0 +1,24 @@
+:host(.ui.page.grid){
+  padding: 0 !important;
+}
+
+.preview, .body, .editor {
+  max-height: 48em !important;
+  padding-left: 1rem !important;
+  padding-right: 0 !important;
+}
+.preview-body{
+  height: 100%;
+  border: 1px solid #DDD;
+  overflow: auto;
+}
+.editor{
+  height: 48em;
+  padding-right: 1rem !important;
+  padding-left: 0 !important;
+}
+.body{
+  font-size: 1.1em !important;
+  height: 100% !important;
+}
+

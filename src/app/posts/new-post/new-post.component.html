@@ -1,19 +1,32 @@
-<form [formGroup]="postForm" novalidate class="ui form" (ngSubmit)="onSubmit()">
-  <div class="field">
-	<div class="ui fluid huge icon input">
-  <input id="post-title" formControlName = "title" placeholder="Title"/>
+<div class="ui column">
+  <form [formGroup]="postForm" novalidate class="ui form" (ngSubmit)="onSubmit()">
+	<div class="field">
+	  <div class="ui fluid huge icon input">
+		<input id="post-title" formControlName = "title" placeholder="Title"/>
+	  </div>
 	</div>
-  </div>
-  <div class="field">
-	<div class="ui fluid icon input">
-  <input id="post-tag" formControlName = "tag" placeholder="Write tags separated by comma"/>
+	<div class="field">
+	  <div class="ui fluid icon input">
+		<input id="post-tag" formControlName = "tag" placeholder="Write tags separated by comma"/>
+	  </div>
 	</div>
-  </div>
-  <div class="field">
-	<textarea id="simplemde" formControlName="body" rows="48" cols="40" placeholder="Write something..."></textarea>
-  </div>
-  <button type="submit" class="ui button primary right floated">Post it</button>
-</form>
+	<div class="ui grid field">
+	  <div class="ui row">
+		<div class="editor ui eight wide column">
+		  <textarea formControlName="body" cols="40" placeholder="Write something..." class="body"></textarea>
+		</div>
+		<div class="preview ui eight wide column">
+		  <div class="preview-body">
+		  <markdown-to-html [data]="markdown_data" class="markdown-body"></markdown-to-html>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<button type="submit" class="ui button primary right floated">Post it</button>
+  </form>
 
-<p>Form Value: {{ postForm.value | json }}</p>
-<p>Form status: {{ postForm.status | json }}</p>
+  <p> {{ postForm.get('body').value }} </p>
+  <p>Form Value: {{ postForm.value | json }}</p>
+  <p>Form status: {{ postForm.status | json }}</p>
+  <button type="button" class="ui button" (click)="change_url()">Change</button>
+</div>

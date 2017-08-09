@@ -20,12 +20,15 @@
       "prefix": "app",
       "styles": [
         "styles.css",
+	"github-markdown.css",
 	"../semantic/dist/semantic.min.css",
-	"../node_modules/simplemde/dist/simplemde.min.css"
+	"../node_modules/simplemde/dist/simplemde.min.css",
+	"prism-ghcolors.css"
       ],
       "scripts": [
 	"../node_modules/jquery/dist/jquery.min.js",
-	"../semantic/dist/semantic.js"
+	"../semantic/dist/semantic.js",
+	"../node_modules/marked/lib/marked.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

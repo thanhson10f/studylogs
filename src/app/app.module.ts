@@ -12,11 +12,12 @@ import { PostDetailsComponent } from './posts/post-details/post-details.componen
 import { PostDetailsContentComponent } from './posts/post-details-content/post-details-content.component';
 import { NewPostComponent } from './posts/new-post/new-post.component';
 import { MdeditorComponent } from './mdeditor/mdeditor.component';
+import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts/:id', component: PostDetailsComponent},
-  { path: 'new-post', component: NewPostComponent}
+  { path: '/new-post', component: NewPostComponent}
 ]
 
 @NgModule({
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
 	),
     BrowserModule,
 	HttpModule,
-	ReactiveFormsModule 
+	ReactiveFormsModule,
+	MarkdownToHtmlModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
