@@ -16,7 +16,7 @@
 		  <textarea formControlName="body" cols="40" placeholder="Write something..." class="body"></textarea>
 		</div>
 		<div class="preview ui eight wide column">
-		  <div class="preview-body">
+		  <div class="preview-body" #bottomscroll>
 		  <markdown-to-html [data]="markdown_data" class="markdown-body"></markdown-to-html>
 		  </div>
 		</div>

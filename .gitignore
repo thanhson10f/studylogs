@@ -47,3 +47,6 @@ Thumbs.db
 !/semantic/dist/*.js
 !/semantic/dist/*.css
 !/semantic/dist/themes/default/
+
+# Vim swap file
+*.swp

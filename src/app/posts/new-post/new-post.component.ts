@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding} from '@angular/core';
+import { Component, OnInit, HostBinding, ViewChild, ElementRef, AfterViewChecked} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
@@ -7,7 +7,8 @@ import { Location } from '@angular/common';
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css']
 })
-export class NewPostComponent implements OnInit {
+export class NewPostComponent implements OnInit, AfterViewChecked{
+  @ViewChild('bottomscroll') private markdown_preview: ElementRef;
   @HostBinding('attr.class') cssClass = "ui page grid";
   postForm: FormGroup;
   post_id: string;
@@ -18,6 +19,15 @@ export class NewPostComponent implements OnInit {
 	this.createForm();
 	this.markdown_process();
 	this.post_id = this.generate_unique_id();
+	this.scrollToBottom();
+  }
+  ngAfterViewChecked(){
+	this.scrollToBottom();
+  }
+  scrollToBottom():void {
+	try {
+	  this.markdown_preview.nativeElement.scrollTop = this.markdown_preview.nativeElement.scrollHeight;
+	} catch(err) { }
   }
 
   createForm(){

@@ -17,7 +17,7 @@ import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts/:id', component: PostDetailsComponent},
-  { path: '/new-post', component: NewPostComponent}
+  { path: 'new-post', component: NewPostComponent}
 ]
 
 @NgModule({
